@@ -6,7 +6,7 @@ import (
 
 	"gopkg.in/yaml.v3"
 )
-func LoadConfig() {
+func LoadConfig() Config {
 	f, err := os.OpenFile("env.yml", os.O_RDONLY, 0644)
 	if err != nil {
 		log.Fatal(err)
@@ -19,5 +19,6 @@ func LoadConfig() {
 		log.Fatal(err)
 		panic(errDecode)
 	}
+	return cfg
 }
 

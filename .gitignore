@@ -245,3 +245,5 @@ licenses/LICENSES-ui.txt
 
 # airflow-build-dockerfile and correconding ignore file
 airflow-build-dockerfile*
+
+env*

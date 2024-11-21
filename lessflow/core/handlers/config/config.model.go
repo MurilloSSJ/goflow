@@ -8,4 +8,8 @@ type Config struct {
 		Password string `yaml:"password"`
 		Database string `yaml:"database"`
 	} `yaml:"database"`
+
+	Base struct {
+		DagDir string `yaml:"dag_dir"`
+	} `yaml:"base"`
 }
