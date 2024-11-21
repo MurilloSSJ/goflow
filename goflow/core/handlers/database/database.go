@@ -1,11 +1,7 @@
 package database
 
-import (
-	"gorm.io/gorm"
-)
-
 type Database interface {
-	GetConnection() (*gorm.DB, error)
+	GetConnection() error
 	CloseConnection()
 	Insert(interface {}) error
 	Update(interface {}) error
