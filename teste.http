@@ -1,0 +1,6 @@
+POST http://localhost:3333/dags
+Content-Type: application/json
+
+{
+    "dagId": "batatinha"
+}

@@ -1,7 +1,10 @@
 package main
 
 import (
+	"errors"
+	"fmt"
 	"net/http"
+	"os"
 
 	"github.com/MurilloSSJ/goflow/api/modules/dags"
 )
@@ -9,9 +12,11 @@ import (
 func main() {
 	mux := http.NewServeMux()
 	mux.Handle("/dags", dags.DagMux())
-	server := &http.Server{
-		Addr:    ":8080",
-		Handler: mux,
+	err := http.ListenAndServe(":3333", mux)
+	if errors.Is(err, http.ErrServerClosed) {
+		fmt.Printf("server closed\n")
+	} else if err != nil {
+		fmt.Printf("error starting server: %s\n", err)
+		os.Exit(1)
 	}
-	server.ListenAndServe()
 }
